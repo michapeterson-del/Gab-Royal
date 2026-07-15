@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fbf8f3;
+  --foreground: #2a2420;
+  --gold: #a9812f;
+  --gold-light: #c9a55a;
+  --ink: #211c19;
+  --cream: #f4ede1;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-ink: var(--ink);
+  --color-cream: var(--cream);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.section-divider {
+  background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+  height: 1px;
+}
