@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gab Royal – Friseursalon Website
 
-## Getting Started
+Website für den Friseursalon **Gab Royal** mit Online-Terminbuchung.
+Gebaut mit Next.js (App Router, TypeScript, Tailwind CSS) und
+Prisma/SQLite als Datenbank.
 
-First, run the development server:
+## Funktionen
+
+- **Startseite** mit Vorstellung des Salons und beliebten Leistungen
+- **Leistungen** (`/leistungen`): alle Behandlungen (Haarschnitt, Färben,
+  Dauerwelle, Strähnen, Glättung, Styling, …) mit Preis und Dauer
+- **Termin buchen** (`/buchen`): Leistung, Datum und Uhrzeit wählen –
+  freie Zeiten werden automatisch anhand der Behandlungsdauer berechnet,
+  sodass sich keine Termine überschneiden
+
+## Lokal starten
 
 ```bash
+npm install
+npx prisma db push     # legt die SQLite-Datenbank an
+npm run db:seed        # befüllt die Leistungen
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Danach [http://localhost:3000](http://localhost:3000) im Browser öffnen.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+> Hinweis: GitHub zeigt hier nur den Quellcode an. Um die Website
+> tatsächlich zu sehen, muss sie lokal gestartet (siehe oben) oder z. B.
+> auf [Vercel](https://vercel.com/new) deployt werden.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Projektstruktur
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `src/app` – Seiten und API-Routen (Next.js App Router)
+- `src/components` – UI-Komponenten (Header, Footer, Buchungsformular)
+- `src/lib` – Datenbankzugriff und Verfügbarkeitslogik
+- `prisma/schema.prisma` – Datenmodell für Leistungen und Buchungen
+- `prisma/seed.ts` – Beispiel-Leistungen zum Befüllen der Datenbank
