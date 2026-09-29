@@ -17,6 +17,7 @@ Prisma/SQLite als Datenbank.
 
 ```bash
 npm install
+cp .env.example .env    # lokale Einstellungen (wird nicht committet)
 npx prisma db push     # legt die SQLite-Datenbank an
 npm run db:seed        # befüllt die Leistungen
 npm run dev
